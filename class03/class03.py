@@ -50,8 +50,10 @@ for cam_name in list(set_dict.keys()):
 
 # case 1 - volume
 material_node = hou.node("/mat").createNode("arnold_materialbuilder", node_name="volume")
+OUT_material_node = material_node.children()[0]
 standard_node = hou.node("/mat/volume").createNode("arnold::standard_volume")
-material_node.connect("")
+OUT_material_node.setNamedInput("volume", standard_node, "volume")
+
 
 '''
 material_node 에서 수행 가능한 명령어 목록들 중에서
