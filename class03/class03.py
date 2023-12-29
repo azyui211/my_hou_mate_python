@@ -49,7 +49,7 @@ for cam_name in list(set_dict.keys()):
 
 
 
-choices = ["Option A", "Option B", "Option C"]
+choices = ["Particle", "Surface", "Texture", "Volume"]
 
 # 선택 창 띄우기
 result = hou.ui.selectFromList(choices, exclusive=True, message="Select an option:")
@@ -60,9 +60,6 @@ if result is None:
 else:
     selected_index = result[0]  # 선택한 항목의 인덱스
     selected_option = choices[selected_index]  # 선택한 항목의 이름
-    print(f"Selected option: {selected_option} (Index: {selected_index})")
-
-
 
 # case 1 - volume
 material_node = hou.node("/mat").createNode("arnold_materialbuilder", node_name="volume")
