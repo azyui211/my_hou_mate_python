@@ -48,6 +48,22 @@ for cam_name in list(set_dict.keys()):
     light_back.setParms({set_dict[cam_name][0]:set_dict[cam_name][1]})
 
 
+
+choices = ["Option A", "Option B", "Option C"]
+
+# 선택 창 띄우기
+result = hou.ui.selectFromList(choices, exclusive=True, message="Select an option:")
+
+# 사용자가 취소 버튼을 클릭한 경우
+if result is None:
+    print("Selection canceled.")
+else:
+    selected_index = result[0]  # 선택한 항목의 인덱스
+    selected_option = choices[selected_index]  # 선택한 항목의 이름
+    print(f"Selected option: {selected_option} (Index: {selected_index})")
+
+
+
 # case 1 - volume
 material_node = hou.node("/mat").createNode("arnold_materialbuilder", node_name="volume")
 OUT_material_node = material_node.children()[0]
