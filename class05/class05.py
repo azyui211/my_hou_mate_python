@@ -26,3 +26,11 @@ os.listdir(root_path + "/" + version_list[0])
 '''
 sel = hou.selectedNodes()[0]
 sel.parm('f2').deleteAllKeyframes()
+
+'''
+    노드의 파라미터 값 읽어오기
+'''
+
+sel = hou.selectedNodes()[0]
+value = sel.parm('fileName').eval()
+
