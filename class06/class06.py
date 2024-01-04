@@ -12,27 +12,27 @@ def mk_node(node_path, node_type, node_name=None):
 
 def create_volume_material():
     material_node = mk_node("/mat", "arnold_materialbuilder", "volume")
-    OUT_material_node = material_node.children()[0]
     standard_node = mk_node("/mat/volume", "arnold::standard_volume")
+    
+    OUT_material_node = material_node.children()[0]
     OUT_material_node.setNamedInput("volume", standard_node, "volume")
 
     
 def create_surface_material():
-    material_node = hou.node("/mat").createNode("arnold_materialbuilder", node_name="surface")
-    material_node.moveToGoodPosition()
+    material_node = mk_node("/mat", "arnold_materialbuilder", "surface")
+    standard_node = mk_node("/mat/surface", "arnold::standard_surface")
+    
     OUT_material_node = material_node.children()[0]
-    standard_node = hou.node("/mat/surface").createNode("arnold::standard_surface")
     OUT_material_node.setNamedInput("surface", standard_node, "shader")
-    standard_node.moveToGoodPosition()
-    userrgb_node = hou.node("/mat/surface").createNode("arnold::user_data_rgb")
+    
+    userrgb_node = mk_node("/mat/surface", "arnold::user_data_rgb")
     userrgb_node.setParms({"attribute":"Cd"})
-    standard_node.setNamedInput("base_color", userrgb_node,"rgb")
-    userrgb_node.moveToGoodPosition()
-    userfloat_node = hou.node("/mat/surface").createNode("arnold::user_data_float")
+    
+    userfloat_node = mk_node("/mat/surface", "arnold::user_data_float")
     userfloat_node.setParms({"attribute":"Alpha"})
+    
+    standard_node.setNamedInput("base_color", userrgb_node,"rgb")
     standard_node.setNamedInput("opacity", userfloat_node,"float")
-    userfloat_node.moveToGoodPosition()
-    OUT_material_node.moveToGoodPosition()
 
 
 #### Class
