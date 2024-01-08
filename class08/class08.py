@@ -29,13 +29,35 @@
 '''
 
 import sys
-from PySide2 import QtWidgets, QtCore
+from PySide2 import QtWidgets, QtCore, Qt
 
 class myWindow(QtWidgets.QMainWindow):
     def __init__(self, parent=None):
         super(myWindow, self).__init__(parent)
+        self.resize(500,400)
+        
+        self.inputText = QtWidgets.QLineEdit(self)
+        self.inputText.setGeometry(QtCore.QRect(20,20,300,40))
+        self.inputText.setStyleSheet("QLineEdit{color:#EFEFEF; background-color:#232323; border-radius:10px; padding-left:20px}")
 
-app = QtWidgets.QApplication(sys.argv)
+        self.buttonA = QtWidgets.QPushButton(self)
+        self.buttonA.setGeometry(QtCore.QRect(330,20,80,40))
+        self.buttonA.setStyleSheet("QPushButton{color:#EFEFEF; background-color:#232323; border-radius:10px} QPushButton:hover{background-color:red;}")
+
+        self.spinA = QtWidgets.QSpinBox(self)
+        self.spinA.setGeometry(QtCore.QRect(20, 70, 100, 40))
+        
+        self.buttonA.clicked.connect(self.buttonA_exec)
+        
+    def buttonA_exec(self):
+        self.inputText.setText("test Text")
+        # Read
+        # current_text = self.inputText.text()
+        
+    
+        
+
+app = QtWidgets.QApplication(sys.argv)      # 후디니에서 띄울 경우 필요없는 줄 1
 widgetUI = myWindow()
 widgetUI.show()
-sys.exit(app.exec_())
+sys.exit(app.exec_())                       # 후디니에서 띄울 경우 필요없는 줄 2

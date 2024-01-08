@@ -10,8 +10,10 @@ import sys
 from PySide2.QtWidgets import QMainWindow, QApplication
 from PySide2.QtUiTools import loadUiType
 
-current_dir_path = os.path.dirname(os.path.abspath(__file__))
-ui_file_path = os.path.join(current_dir_path, "test.ui")        # .ui 파일 연결
+# current_dir_path = os.path.dirname(os.path.abspath(__file__))
+# ui_file_path = os.path.join(current_dir_path, "test.ui")        # .ui 파일 연결
+
+ui_file_path = "ui파일 경로"
 
 form_class = loadUiType(ui_file_path)[0]
 
