@@ -11,6 +11,10 @@
     읽기 - 위젯.text()
     쓰기 - 위젯.setText()
 
+# Value 읽기
+    읽기 - 위젯.value()
+    쓰기 - 위젯.setValue()
+
 # 기본 꾸미기
     위젯.setStyleSheet("위젯타입이름{스타일시트 내용}")
     
