@@ -6,3 +6,5 @@
 4. class04 - Volume Material 자동 세팅 코드 진행
 5. class05 - 파일 패스 문자열 다루기
 6. class06 - 함수별 정리. 리팩토링 기초
+7. class07 - PySide2 .ui 파일 로드 기본형
+8. class08 - PySide2 UI 다루기 기초
