@@ -23,18 +23,19 @@ ote.exe
 와 같이 나옵니다.
 \n 이 의미하는 바가 '줄바꿈'이기 때문입니다.
 
-
 윈도우 경로인 역슬래시를 파이썬에서 제대로 표시하려면
 
 역슬래시를 두 번 반복해서 적어야합니다. 
 '''
 print("C:\\Python39\\note.exe")
 
+textA = "C:\\Python39\\note.exe"
+
+
 '''
     또는 문자열을 의미하는 따옴표 앞에 r 을 붙이면 됩니다.
 '''
 print(r"C:\Python39\note.exe")
-
 
 
 ### 문자열 실습 ###
@@ -45,29 +46,40 @@ who = "Sup"
 category = "Comment"
 
 ## 2
-title = "Sup Comment"
+
+title = who + " " + category
 textA = "OK입니다."
 textB = "펍해주세요."
 
+print(title + "\n" + textA + "\n" + textB)
 
 # 곱하기
-dot_line = "-"
+dot_line = ":+"
 split_line = dot_line * 20
+
 
 # 인덱스
 mov_path = "X:\\projects\\2023_06_theKillers\\temp\\INJ_0020_edit_v001.mov"
+mov_path.index("projects")
 mov_path.index("")
 
 # 인덱스 자르기
-today = "20240110"
-
+today = "20240111"
 
 # 숫자 표현
 numA = 9
 numB = 7
 numC = 4
 
-"%d" % numA
+'''
+d = 숫자
+s = 문자열
+f = 소수점
+'''
+
+"%3d 월부터 %3d월까지" % (numB, numA)
+
+"%f" % numA
 "{}".format(numA)
 
 "%03d" % numA
@@ -77,6 +89,10 @@ numC = 4
 numA = "7"
 numA = str(int(numA) + 1)
 
+numA = "007"
+numA_plus = int(numA) + 1
+"%03d" % numA_plus
+
 # 길이
 res = ["A" , "B", "C"]
 len(res)
@@ -84,15 +100,21 @@ len(res)
 textA = "giantstep"
 num = len(textA)
 
-
 # 일부 문자 존재 여부 확인
 textA = "giantstep"
 
-if "D" in res:
+if textA.count("step"):
     print("pass")
 
 if "step" in textA:
     print("pass")
+
+if "D" in res:
+    print("pass")
+
+for i in ["step", "giant"]:
+    if "st" in i:
+        print("pass")
 
 if textA.count("st"):
     print("pass")
@@ -114,15 +136,13 @@ textA.split("00")
 
 
 # 붙이기
-
 who = "Sup"
 category = "Comment"
-words = [who, category]
+words = [who, category] 
 
 "_".join(words)
 " ".join(words)
 "/".join(words)
-
 
 '''
 # 실습 예제
