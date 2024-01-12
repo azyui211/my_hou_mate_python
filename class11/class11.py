@@ -19,6 +19,13 @@ for i in range(5):              # for 문으로 리스트를 채우려는 경우
     listA.append(i)
 
 listA = list()
+for i in range(5):
+    listB = list()
+    for j in range(3):
+        listB.append(j)
+    listA.append(listB)
+
+listA = list()
 listA.append("0")
 listA.append("1")
 listA.append("2")
@@ -33,9 +40,11 @@ for j in range(5):
 
 ## 선택적 추가
 # 3이면 제외
+listA = list()
 for n in range(5):
     if n != 3:
         listA.append(n)
+
 '''
     A == B   A와 B가 같으면
     A != B   A와 B가 다르면
@@ -46,12 +55,9 @@ for n in range(5):
         listA.append(n)
 
 
-
 ## 아이템 삭제
 listA = ["A", "B", "C"]
 listA.remove("B")
-
-
 
 ## 리스트 안에 리스트
 listA = [["1_A", "1_B", "1_C"], ["2_A", "2_B", "2_C"], ["3_A", "3_B", "3_C"]]
@@ -98,12 +104,15 @@ sorted_list = sorted(list(set(listA)))
 dictA = dict()
 dictA = {}
 
-
+dictA = {"A":"B", "C":"D"}
+dictA["C"] = "E"
 
 ## 아이템 추가
 dictA["A"] = "B"
 dictA["C"] = "D"
-dictA.update({"A": "B", "C": "D"})
+
+dictB = {"A": "B", "C": "D"}
+dictA.update(dictB)
 
 # for 문 안에서 추가
 # 리스트와 마찬가지로 for문이 나오면 담을 그릇(딕셔너리)을 준비해야하는 시점이 언제인지 잘 생각해야합니다.
@@ -115,6 +124,16 @@ dictA = {}
 for i in shot_path_list:
     shot_name = i.split("/")[-1]
     dictA[shot_name] = i
+
+
+
+
+
+
+
+
+
+
 
 # for문으로 딕셔너리 추가할 때의 주의점
 # key 값이 중복되어 입력되면 value값은 덮어쓰기 됩니다.
