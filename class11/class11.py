@@ -127,14 +127,6 @@ for i in shot_path_list:
 
 
 
-
-
-
-
-
-
-
-
 # for문으로 딕셔너리 추가할 때의 주의점
 # key 값이 중복되어 입력되면 value값은 덮어쓰기 됩니다.
 file_list = ["INJ_0010", "INJ_0020", "TRA_0020", "TNO_0040"]
@@ -157,7 +149,9 @@ dictA = {"EDU_0010": "/projects/2022_09_pipelineEDU2/sequence/EDU/EDU_0010",
 dictA_key_list = list(dictA.keys())
 # 마찬가지로 value들로만 묶은 리스트를 만들 수 있습니다.
 dictA_value_list = list(dictA.values())
-
+# key, value를 한꺼번에 표시
+for i, k in dictA.items():
+    print(i, k)
 
 
 ## 분해 활용법
@@ -167,7 +161,6 @@ dict_key_list = list(dictA.keys())
 if shot_name in dict_key_list:
     shot_path = dictA[shot_name]
     print(shot_path)
-
 
 
 ## 딕셔너리 안에 딕셔너리
